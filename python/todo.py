@@ -16,6 +16,10 @@ def add_task(task):
     Input - a task to add to the list
     Return - nothing
     """
+    with open(TASK_FILE, 'r', encoding = 'utf-8') as file:
+        new_task = input('')
+        TASK_FILE.append(new_task)
+    
 
 def list_tasks():
 
