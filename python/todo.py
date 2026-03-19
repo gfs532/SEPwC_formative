@@ -36,7 +36,17 @@ def list_tasks():
 
 
 def remove_task(index):
-    return
+    
+    with open(TASK_FILE, 'r', encoding = 'utf-8') as file:
+        tasks = file.readlines()
+        file.close()
+    with open(TASK_FILE, 'w', encoding = 'utf-8') as file:
+        for number in tasks:
+            if number == index:
+                new_list = tasks.remove(index)
+                
+                
+    return new_list
 
 def main():
     parser = argparse.ArgumentParser(description="Command-line Todo List")
