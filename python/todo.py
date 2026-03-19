@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 19 15:57:48 2026
+
+@author: matilda
+"""
+
 import argparse
 import os
 
@@ -5,13 +12,23 @@ TASK_FILE = ".tasks.txt"
 
 def add_task(task):
     """Function: add_task
-    
+    #open(file name) read
     Input - a task to add to the list
     Return - nothing
     """
 
 def list_tasks():
-    return
+
+    with open(TASK_FILE,'r', encoding= 'utf-8') as file:
+        tasks = file.readlines()
+        counter = 1
+        output_string = ''
+        for task in tasks :
+            output_string = output_string + str(counter) + '. ' + task
+            counter = counter + 1
+            output_string_strip = output_string.strip()
+            
+    return output_string_strip
 
 
 def remove_task(index):
@@ -48,4 +65,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main() 
