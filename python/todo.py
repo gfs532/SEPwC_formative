@@ -16,6 +16,7 @@ def add_task(task):
     Input - a task to add to the list
     Return - nothing
     """
+    #re-write list with new task and new line
     with open(TASK_FILE, 'a', encoding = 'utf-8') as file:
         file.write(task + '\n')
     
@@ -27,12 +28,12 @@ def list_tasks():
         tasks = file.readlines()
         counter = 1
         output_string = ''
+        #formatting list
         for task in tasks :
             output_string = output_string + str(counter) + '. ' + task
             counter = counter + 1
-            output_string_strip = output_string.strip()
-            
-    return output_string_strip
+    # remove whitespace       
+    return output_string.strip()
 
 
 def remove_task(index):
@@ -41,6 +42,7 @@ def remove_task(index):
         tasks = file.readlines()
         length = len(tasks)
        
+        #delete task that matches the index that is given by user
         if index <= 0 or index > length:
             return tasks
         else:
